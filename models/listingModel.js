@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const listingSchema = new mongoose.Schema({
     image: { type: String, required: true },
@@ -8,7 +8,6 @@ const listingSchema = new mongoose.Schema({
     km:    { type: Number, required: true },
     stock: { type: Number, required: true },
     extracost: { type: Number, default: 0 },
-    
 
     meta: {
         title: { type: String },       
@@ -18,4 +17,5 @@ const listingSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-module.exports = mongoose.model("Listing", listingSchema);
+// ✅ IMPORTANT CHANGE
+export default mongoose.models.Listing || mongoose.model("Listing", listingSchema);

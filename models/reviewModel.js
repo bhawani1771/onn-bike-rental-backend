@@ -1,8 +1,9 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const reviewSchema = new mongoose.Schema({
-    name :{type : String , required :true},
-    description :{type : String , required : true},
-})
+    name: { type: String, required: true },
+    description: { type: String, required: true }
+}, { timestamps: true });
 
-module.exports = mongoose.model("Onnreview" ,reviewSchema );
+// ✅ Vercel-safe export
+export default mongoose.models.Onnreview || mongoose.model("Onnreview", reviewSchema);
