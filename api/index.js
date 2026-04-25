@@ -180,7 +180,7 @@ app.get("/api/orders", async (req, res) => {
     }
 });
 
-app.put("/orders/:id", async (req, res) => {
+app.put("/api/orders/:id", async (req, res) => {
     await connectDB();
     try {
         const updated = await Order.findByIdAndUpdate(
